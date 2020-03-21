@@ -1,4 +1,4 @@
-package movies;
+package bg.mobile.users.rest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,5 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MovieModel {
+public class LoginRequest {
+
+  private String username;
+
+  private String password;
+
 }

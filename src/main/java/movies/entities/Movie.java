@@ -1,6 +1,8 @@
 package movies.entities;
 
 import actors.Actor;
+import lombok.Builder;
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.Id;
 
@@ -9,7 +11,8 @@ import javax.persistence.*;
 import java.util.Set;
 
 import static constants.Constants.UUID_SIZE;
-
+@Data
+@Builder
 @Entity
 @Table(name = "movies")
 public class Movie {
