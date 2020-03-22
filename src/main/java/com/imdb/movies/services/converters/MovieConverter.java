@@ -40,17 +40,6 @@ public class MovieConverter {
             movieModel.setYear(movie.getYear());
             movieModel.setActors(toActors(movie.getActors()));
 
-
-//            final MovieModel movieModel = MovieModel.builder()
-//                    .id(movie.getId())
-//              //      .actors(toActors(movie.getActors()))
-//                    .genre(movie.getGenre())
-//                    .name(movie.getName())
-//                    .picturePath(movie.getPicturePath())
-//                    .trailerUrl(movie.getTrailerUrl())
-//                    .year(movie.getYear())
-//                    .rating(movie.getRating())
-//                    .build();
             return movieModel;
         }
 
@@ -84,17 +73,6 @@ public class MovieConverter {
             return movie;
 
 
-//            final Movie movie = Movie.builder()
-//                    .id(model.getId())
-//                    //    .actors(createActorsIfMissing(model.getActors()))
-//                    .genre(model.getGenre())
-//                    .name(model.getName())
-//                    .picturePath(model.getPicturePath())
-//                    .rating(model.getRating())
-//                    .trailerUrl(model.getTrailerUrl())
-//                    .year(model.getYear())
-//                    .build();
-//            return movie;
         }
 
         return null;
