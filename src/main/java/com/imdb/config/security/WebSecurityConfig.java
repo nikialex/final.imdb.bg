@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   public void configure(final WebSecurity web) {
     web.ignoring().antMatchers(
-            "/com/imdb/movies/all",
+            "/movies/all",
         "/configuration/ui",
         "/configuration/**",
         "/actuator/**",
