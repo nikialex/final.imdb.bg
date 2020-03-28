@@ -42,11 +42,8 @@ public class TestMovieAccessValidator {
     }
 
     private MovieModel buildMovie() {
-      //  final UserModel user = new UserModel(null, "Kircata", "1234", "Kiril", "Petkov");
-    //    final UserModel createdUser = userService.registerUser(user);
 
         final MovieModel movieModel = new MovieModel();
-
         movieModel.setGenre(Genre.Comedy);
         movieModel.setName("Test");
         movieModel.setPicture_path("Path");
@@ -63,7 +60,6 @@ public class TestMovieAccessValidator {
     private UserModel registerUser() {
         final UserModel user = new UserModel(null, "Kircata", "1234", "Kiril", "Petkov");
         final UserModel createdUser = userService.registerUser(user);
-
         return createdUser;
     }
 

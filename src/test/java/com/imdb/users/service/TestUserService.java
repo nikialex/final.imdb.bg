@@ -40,7 +40,6 @@ public class TestUserService {
         final UserModel model = new UserModel(null, "petko", "password", "petkov", "petkov");
 
         final UserModel created = userService.registerUser(model);
-
         assertThrows(
                 HttpUnauthorizedException.class,
                 () -> userService.loginUser(created.getUsername(), "root"));
