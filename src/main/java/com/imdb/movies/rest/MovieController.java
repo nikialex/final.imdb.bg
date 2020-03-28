@@ -35,15 +35,12 @@ public class MovieController {
     }
 
     @PutMapping
-    public MovieModel updateMovie(@RequestBody final MovieModel Movie, @RequestBody final UserModel user) {
-        movieAccessValidator.validateUserMovieEdit(user.getId(), Movie.getId());
+    public MovieModel updateMovie(@RequestBody final MovieModel Movie) {
         return movieService.updateMovie(Movie);
     }
 
-    @DeleteMapping("/{id}/{userId}")
-    public void deleteMovie(@PathVariable final Long id, @PathVariable final String userId) {
-        //    MovieAccessValidator.validateUserMovieEditMovie(userId, id);
-
+    @DeleteMapping("/{id}")
+    public void deleteMovie(@PathVariable final Long id) {
         movieService.deleteMovie(id);
     }
 }
