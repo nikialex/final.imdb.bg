@@ -3,6 +3,8 @@ package com.imdb.movies.rest;
 
 import com.imdb.movies.models.MovieModel;
 import com.imdb.movies.services.MovieService;
+import com.imdb.users.model.UserModel;
+import com.imdb.users.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,36 +12,38 @@ import java.util.List;
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
-    private final MovieService MovieService;
-    private final MovieAccessValidator MovieAccessValidator;
+    private final MovieService movieService;
+    private final MovieAccessValidator movieAccessValidator;
+    private final UserService userService;
 
     public MovieController(final com.imdb.movies.services.MovieService MovieService,
-                           final MovieAccessValidator MovieAccessValidator) {
-        this.MovieService = MovieService;
-        this.MovieAccessValidator = MovieAccessValidator;
+                           final MovieAccessValidator MovieAccessValidator,
+                           final UserService userService) {
+        this.movieService = MovieService;
+        this.movieAccessValidator = MovieAccessValidator;
+        this.userService = userService;
     }
 
     @PostMapping
     public MovieModel createMovie(@RequestBody final MovieModel Movie) {
-        return MovieService.createMovie(Movie);
+        return movieService.createMovie(Movie);
     }
 
     @GetMapping("/all")
     public List<MovieModel> getAllMovies() {
-        return MovieService.getAllMovies();
+        return movieService.getAllMovies();
     }
 
     @PutMapping
-    public MovieModel updateMovie(@RequestBody final MovieModel Movie) {
-        // MovieAccessValidator.validateUserCanEditMovie(Movie.getUser().getId(), Movie.getId());
-
-        return MovieService.updateMovie(Movie);
+    public MovieModel updateMovie(@RequestBody final MovieModel Movie, @RequestBody final UserModel user) {
+        movieAccessValidator.validateUserMovieEdit(user.getId(), Movie.getId());
+        return movieService.updateMovie(Movie);
     }
 
     @DeleteMapping("/{id}/{userId}")
     public void deleteMovie(@PathVariable final Long id, @PathVariable final String userId) {
-        //    MovieAccessValidator.validateUserCanEditMovie(userId, id);
+        //    MovieAccessValidator.validateUserMovieEditMovie(userId, id);
 
-        MovieService.deleteMovie(id);
+        movieService.deleteMovie(id);
     }
 }

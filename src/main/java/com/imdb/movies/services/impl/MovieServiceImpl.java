@@ -93,13 +93,12 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<MovieModel> getAllMovies() {
 
-        log.info("Get all com.imdb.actors.movies BEGIN: ");
+        log.info("Get all com.imdb.actors.imbd.movies BEGIN: ");
 
         final List<Movie> all = movieRepository.findAll();
-
         final List<MovieModel> movies = movieConverter.convertToModels(all);
 
-        log.info("Get all com.imdb.actors.movies END: {}", movies);
+        log.info("Get all com.imdb.actors.imbd.movies END: {}", movies);
 
         return movies;
     }

@@ -16,6 +16,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
   public JWTAuthorizationFilter(final AuthenticationManager authManager) {

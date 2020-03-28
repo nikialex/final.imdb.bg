@@ -1,5 +1,6 @@
 package com.imdb.config.security;
 
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 public class PasswordEncoder {
