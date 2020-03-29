@@ -3,16 +3,15 @@ package com.imdb.movies.entities;
 
 import com.imdb.actors.entities.Actor;
 import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Set;
-
 
 
 @Data
 @Entity
 @Table(name = "movies")
 public class Movie {
-
 
 
     @Id
@@ -29,8 +28,12 @@ public class Movie {
     @Column(nullable = false)
     private Genre genre;
 
-    @Column(nullable = false)
-    private String picturePath;
+//    @Column(nullable = false)
+//    private String picturePath;
+
+    @Lob
+    @JoinColumn(name = "picture_path")
+    private byte[] image;
 
     @Column(nullable = false)
     private String trailerUrl;

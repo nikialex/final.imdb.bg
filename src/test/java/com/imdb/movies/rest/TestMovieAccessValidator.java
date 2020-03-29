@@ -2,6 +2,7 @@ package com.imdb.movies.rest;
 
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.imdb.exceptions.HttpForbiddenException;
 import com.imdb.movies.entities.Genre;
 import com.imdb.movies.models.MovieModel;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.File;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -42,11 +45,11 @@ public class TestMovieAccessValidator {
     }
 
     private MovieModel buildMovie() {
-
+        File pic = new File("C:\\Users\\Pragmatic10\\Desktop\\niki\\backend\\final.imdb.bg\\src\\test\\resources\\subscri.PNG");
         final MovieModel movieModel = new MovieModel();
         movieModel.setGenre(Genre.Comedy);
         movieModel.setName("Test");
-        movieModel.setPicture_path("Path");
+        movieModel.setPicture_path(pic);
         // movieModel.setRating(movie.getRating());
         movieModel.setTrailer_url("url");
         movieModel.setYear(1997);

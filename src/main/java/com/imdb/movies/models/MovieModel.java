@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +17,7 @@ public class MovieModel {
     private String name;
     private int year;
     private Genre genre;
-    private String picture_path;
+    private File picture_path;
     private String trailer_url;
     private String actors;
     private String rating;
